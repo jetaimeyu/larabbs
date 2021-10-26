@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b22fed56e09446711a36fe72638bb83",
+    "content-hash": "b0d532b4eff7ca68b6c42bdf123080bd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2267,6 +2267,52 @@
                 "source": "https://github.com/opis/closure/tree/3.6.2"
             },
             "time": "2021-04-09T13:42:10+00:00"
+        },
+        {
+            "name": "overtrue/easy-sms",
+            "version": "1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/easy-sms.git",
+                "reference": "3947b9b606de623441132e2b6ef37dfddd0a4f51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/overtrue/easy-sms/zipball/3947b9b606de623441132e2b6ef37dfddd0a4f51",
+                "reference": "3947b9b606de623441132e2b6ef37dfddd0a4f51",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.2 || ^7.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "1.3.1",
+                "phpunit/phpunit": "^5.7 || ^7.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\EasySms\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "overtrue",
+                    "email": "i@overtrue.me"
+                }
+            ],
+            "description": "The easiest way to send short message.",
+            "support": {
+                "issues": "https://github.com/overtrue/easy-sms/issues",
+                "source": "https://github.com/overtrue/easy-sms/tree/1.3.3"
+            },
+            "time": "2021-10-26T06:04:11+00:00"
         },
         {
             "name": "overtrue/laravel-lang",
@@ -8895,5 +8941,5 @@
         "ext-pcntl": "7.2",
         "ext-posix": "7.2"
     },
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
