@@ -15,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('v1')->namespace('Api')->name('api.v1.')->group(function (){
-    Route::post('verificationCodes', [\App\Http\Controllers\Api\VerificationCodesController::class,'store'])->name('verificationCodes.store');
-    Route::post('users', [\App\Http\Controllers\Api\UsersController::class, 'store'])->name('users.store');
+    Route::middleware('throttle:'.config('api.rate_limits.sign'))->group(function (){
+        Route::post('verificationCodes', [\App\Http\Controllers\Api\VerificationCodesController::class,'store'])->name('verificationCodes.store');
+        Route::post('users', [\App\Http\Controllers\Api\UsersController::class, 'store'])->name('users.store');
+    });
+    Route::middleware('throttle:'.config('api.rate_limits.access'))->group(function (){
+
+    });
+
 });
 
