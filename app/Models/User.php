@@ -9,14 +9,21 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Auth;
 use Spatie\Permission\Traits\HasRoles;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements MustVerifyEmailContract
+class User extends Authenticatable implements MustVerifyEmailContract, JWTSubject
 {
     use Traits\ActiveUserHelper;
     use Traits\LastActivedAtHelper;
     use HasRoles;
     use HasFactory, MustVerifyEmailTrait;
+    public function getJWTIdentifier(){
+        return $this->getKey();
 
+    }
+    public function getJWTCustomClaims(){
+        return [];
+    }
     use Notifiable {
         notify as protected laravelNotify;
     }

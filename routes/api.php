@@ -24,6 +24,8 @@ Route::prefix('v1')->namespace('Api')->name('api.v1.')->group(function () {
         Route::post('users', [\App\Http\Controllers\Api\UsersController::class, 'store'])->name('users.store');
         // 第三方登录
         Route::post('socials/{social_type}/authorizations', [\App\Http\Controllers\Api\AuthorizationController::class, 'socialStore'])->where('social_type', 'wechat')->name('social.authorizations.store');
+        //登录
+        Route::post('authorizations', 'AuthorizationController@store')->name('authorizations.store');
     });
     Route::middleware('throttle:' . config('api.rate_limits.access'))->group(function () {
 
