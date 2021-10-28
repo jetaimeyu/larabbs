@@ -29,6 +29,12 @@ Route::prefix('v1')->namespace('Api')->name('api.v1.')->group(function () {
     });
     Route::middleware('throttle:' . config('api.rate_limits.access'))->group(function () {
 
+
+        Route::get('users/{user}', 'UsersController@show')->name('users.show');
+        // 登陆后可访问的接口
+        Route::middleware('auth:api')->group(function (){
+            Route::get('user', 'UsersController@me')->name('user.show');
+        });
     });
 
 });
