@@ -13,6 +13,7 @@ class VerificationCodeRequest extends FormRequest
         ];
     }
 
+
     public function attributes()
     {
         return [
