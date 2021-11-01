@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use App\Models\Category;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Arr;
 
 class TopicResource extends JsonResource
 {
@@ -15,7 +16,8 @@ class TopicResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        $attributes = parent::toArray($request);
+        $a=  [
             'id' => $this->id,
             'title' => $this->title,
             'body' => $this->body,
@@ -32,5 +34,6 @@ class TopicResource extends JsonResource
             'user'=>new UserResource($this->whenLoaded('user')),
             'category'=>new CategoryResource($this->whenLoaded('category'))
         ];
+        return array_merge($a,$attributes);
     }
 }

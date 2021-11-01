@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Topic extends Model
 {
+
     use HasFactory;
 
     protected $fillable = [
