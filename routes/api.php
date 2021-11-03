@@ -59,6 +59,11 @@ Route::prefix('v1')->namespace('Api')->name('api.v1.')->group(function () {
 
             //通知统计
             Route::get('notifications/stats', 'NotificationsController@stats')->name('notifications.stats');
+
+            // 标记通知为已读
+            Route::patch('user/read/notifications', 'NotificationsController@read')->name('user.notifications.read');
+            // 单条通知标记为已读
+            Route::patch('user/read/notifications/{notification}', 'NotificationsController@readOne')->name('user.notifications.readOne');
         });
 
 
