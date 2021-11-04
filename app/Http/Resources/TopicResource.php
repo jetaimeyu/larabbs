@@ -16,8 +16,7 @@ class TopicResource extends JsonResource
      */
     public function toArray($request)
     {
-        $attributes = parent::toArray($request);
-        $a=  [
+        return [
             'id' => $this->id,
             'title' => $this->title,
             'body' => $this->body,
@@ -34,6 +33,5 @@ class TopicResource extends JsonResource
             'user'=>new UserResource($this->whenLoaded('user')),
             'category'=>new CategoryResource($this->whenLoaded('category'))
         ];
-        return array_merge($a,$attributes);
     }
 }
